@@ -57,18 +57,24 @@ class SimpleNN(nn.Module):          # Define a custom neural network class
         super().__init__()          # Initialize parent nn.Module
 
         self.flatten = nn.Flatten() # Flattens 28x28 image into 784-length vector
-        self.fc1 = nn.Linear(28 * 28, 128)
-        # First fully connected layer: 784 inputs -> 128 hidden units
+        self.fc1 = nn.Linear(28 * 28, 28 * 28)
+        # First fully connected layer: 784 inputs -> 784 hidden units
 
         self.relu = nn.ReLU()       # Nonlinear activation function
-        self.fc2 = nn.Linear(128, 10)
-        # Second fully connected layer: 128 hidden units -> 10 output classes
+        self.fc2 = nn.Linear(28 * 28, 128)
+        # Second fully connected layer: 784 hidden units -> 128 hidden units
+
+        self.relu2 = nn.ReLU()       # Nonlinear activation function
+        self.fc3 = nn.Linear(128, 10)
+        # Third fully connected layer: 128 hidden units -> 10 output classes
 
     def forward(self, x):
         x = self.flatten(x)         # Convert [B, 1, 28, 28] to [B, 784]
         x = self.fc1(x)             # Apply first linear layer
         x = self.relu(x)            # Apply ReLU activation
         x = self.fc2(x)             # Output raw scores (logits) for 10 digits
+        x = self.relu2(x)            # Apply ReLU activation
+        x = self.fc3(x)             # Output raw scores (logits) for 10 digits
         return x                    # Return logits
 
 model = SimpleNN().to(device)       # Create model and move it to CPU or GPU
