@@ -1,0 +1,31 @@
+ACME Corporation - Employee Handbook (Excerpt)
+
+Remote Work Policy
+
+ACME Corporation supports flexible work arrangements. Full-time employees may work remotely up to 3 days per week after completing their 90-day probation period. Remote work requests must be approved by the employee's direct manager. Employees working remotely must be available during core hours (10:00 AM to 3:00 PM local time) and maintain a reliable internet connection.
+
+All remote workers must use the company VPN when accessing internal systems. Personal devices may not be used to access sensitive company data unless enrolled in the Mobile Device Management (MDM) program.
+
+Time Off Policy
+
+Full-time employees receive 15 days of paid time off (PTO) per year, accruing at 1.25 days per month. After 3 years of employment, PTO increases to 20 days per year. After 7 years, PTO increases to 25 days per year.
+
+Sick leave is separate from PTO. Employees receive 10 sick days per year. Unused sick days do not carry over to the following year. A doctor's note is required for absences exceeding 3 consecutive days.
+
+Company holidays include: New Year's Day, Martin Luther King Jr. Day, Presidents' Day, Memorial Day, Independence Day, Labor Day, Thanksgiving (2 days), and Christmas (December 24-25).
+
+HR Contact Information
+
+For questions about employment policies, benefits, or workplace concerns, contact the HR department:
+- Email: hr@acmecorp.example.com
+- Phone: (555) 123-4567
+- Office: Building A, Room 201
+- Hours: Monday-Friday, 9:00 AM - 5:00 PM
+
+For urgent matters outside business hours, contact the HR emergency line at (555) 123-9999.
+
+Code of Conduct
+
+All employees are expected to maintain professional behavior at all times. Harassment, discrimination, and retaliation are strictly prohibited. Violations should be reported to HR or through the anonymous ethics hotline at (555) 000-1111.
+
+ACME Corporation is an equal opportunity employer and does not discriminate based on race, color, religion, sex, national origin, age, disability, or any other protected characteristic.

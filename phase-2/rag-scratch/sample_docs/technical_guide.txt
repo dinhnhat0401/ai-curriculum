@@ -1,0 +1,56 @@
+DataFlow Pro - Technical Architecture Guide
+
+Overview
+
+DataFlow Pro uses a microservices architecture deployed on Kubernetes. The platform consists of five core services: the API Gateway, Pipeline Engine, Scheduler, Connector Framework, and Monitoring Service. All inter-service communication uses gRPC with Protocol Buffers for serialization.
+
+API Gateway
+
+The API Gateway handles all incoming HTTP requests and WebSocket connections. It provides:
+- REST API (OpenAPI 3.0 specification available at /api/docs)
+- WebSocket connections for real-time pipeline monitoring
+- JWT-based authentication with refresh tokens
+- Rate limiting: 1000 requests per minute per API key (configurable)
+- Request/response logging for audit compliance
+
+API keys are managed through the admin console. Each key can be scoped to specific pipelines and operations (read-only, execute, admin).
+
+Pipeline Engine
+
+The Pipeline Engine is the core processing component. It executes data transformations using a directed acyclic graph (DAG) model. Key features:
+- Parallel execution of independent pipeline stages
+- Automatic retry with exponential backoff for transient failures
+- Checkpoint/resume for long-running batch jobs
+- Resource isolation between pipelines using container sandboxing
+- Support for exactly-once processing semantics
+
+Maximum pipeline size: 500 stages per pipeline. Maximum concurrent pipelines: depends on allocated resources (typically 50-100 in production).
+
+Data Security
+
+All data in transit is encrypted using TLS 1.3. Data at rest is encrypted using AES-256. Customer data is isolated using tenant-specific encryption keys managed through AWS KMS or HashiCorp Vault.
+
+DataFlow Pro is SOC 2 Type II certified and GDPR compliant. Data residency options are available for EU, US, and APAC regions.
+
+PII detection is built into the platform. When enabled, the system automatically identifies and masks sensitive fields (SSN, credit card numbers, email addresses) in pipeline logs and monitoring dashboards.
+
+Scaling and Performance
+
+Horizontal scaling is supported for all core services. The Pipeline Engine uses Kubernetes Horizontal Pod Autoscaler (HPA) with custom metrics. Recommended scaling thresholds:
+- CPU utilization: scale up at 70%, scale down at 30%
+- Memory utilization: scale up at 80%
+- Pipeline queue depth: scale up when queue exceeds 100 pending jobs
+
+Typical throughput on recommended hardware:
+- Batch processing: 10-50 GB/hour per pipeline (depends on transformation complexity)
+- Stream processing: 100,000 events/second per pipeline stage
+- API response time: P95 < 200ms for metadata operations
+
+Backup and Disaster Recovery
+
+Pipeline configurations are backed up every 6 hours to a secondary region. Recovery Point Objective (RPO): 6 hours. Recovery Time Objective (RTO): 1 hour for cloud-hosted, varies for self-hosted.
+
+To manually trigger a backup:
+    dataflow-cli backup create --name "pre-upgrade-backup"
+    dataflow-cli backup list
+    dataflow-cli backup restore --name "pre-upgrade-backup"

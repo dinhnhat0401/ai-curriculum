@@ -1,0 +1,55 @@
+DataFlow Pro - Frequently Asked Questions
+
+What is DataFlow Pro?
+
+DataFlow Pro is an enterprise data pipeline management platform. It allows teams to build, monitor, and optimize data pipelines using a visual drag-and-drop interface. DataFlow Pro supports real-time and batch processing, with connectors for over 200 data sources including databases, APIs, cloud storage, and streaming platforms.
+
+System Requirements
+
+Minimum requirements for self-hosted deployment:
+- Operating System: Ubuntu 20.04+, CentOS 8+, or Amazon Linux 2
+- CPU: 4 cores (8 recommended for production)
+- RAM: 16 GB minimum (32 GB recommended)
+- Disk: 100 GB SSD (500 GB for production with data caching)
+- Network: 1 Gbps connection
+- Docker 20.10+ and Docker Compose 2.0+
+- PostgreSQL 14+ (for metadata storage)
+
+Cloud-hosted version requires no infrastructure setup.
+
+Installation
+
+For self-hosted deployment:
+1. Download the installer from https://dataflow.example.com/download
+2. Run: ./install.sh --license-key YOUR_KEY
+3. Access the web UI at http://localhost:8080
+4. Default admin credentials: admin / changeme (change immediately!)
+5. Configure your first data source in Settings > Connectors
+
+For cloud-hosted: Sign up at https://cloud.dataflow.example.com
+
+Supported Programming Languages
+
+DataFlow Pro supports custom transformations written in:
+- Python 3.8+ (recommended for most use cases)
+- SQL (for database transformations)
+- Java 11+ (for high-performance streaming)
+- JavaScript/TypeScript (for API integrations)
+
+Pricing
+
+DataFlow Pro offers three tiers:
+- Starter: $499/month (up to 10 pipelines, 100 GB/day throughput)
+- Professional: $1,499/month (unlimited pipelines, 1 TB/day, priority support)
+- Enterprise: Custom pricing (dedicated infrastructure, SLA, 24/7 support)
+
+All plans include a 14-day free trial. Annual billing receives a 20% discount.
+
+Support
+
+For technical support:
+- Documentation: https://docs.dataflow.example.com
+- Community forum: https://community.dataflow.example.com
+- Email support: support@dataflow.example.com (Professional and Enterprise plans)
+- Phone support: (555) 987-6543 (Enterprise plan only)
+- Slack: Join #dataflow-support on the DataFlow community Slack
